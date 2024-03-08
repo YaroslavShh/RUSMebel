@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #1F1F1F;
+    font-size: 20px;
+}
+
 button, input[type="submit"] {
     cursor: pointer;
     background: none;
@@ -16,6 +24,13 @@ button:focus, button:active {
     outline: none;
 }
 
+label {
+    color: #0c0c0c;
+    font-weight: 500;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
 img, svg {
     max-width: 100%;
     height: auto;
@@ -25,8 +40,17 @@ ul, ul li {
     list-style: none;
 }
 
-a, a:visited  {
+a, a:link, a:visited  {
     text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 170px;
 }
 
 .container {
@@ -34,33 +58,404 @@ a, a:visited  {
     margin: 0 auto;
 }
 
+.btn {
+    background: #131313;
+    padding: 18px 30px 20px 30px;
+    border-radius: 100px;
+    color: #fff;
+    font-size: 18px;
+    transition: 0.5s ease;
+}
+
+.btn:hover {
+    background: #313131;
+    box-shadow: 10px 10px 20px 0 rgba(19, 19, 19, 0.9) inset;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.close div {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    width: 15px;
+    height: 2px;
+    background: #1F1F1F;
+}
+
+.close div:last-child {
+    transform: rotate(-45deg);
+}
+
+.close div:first-child {
+    transform: rotate(45deg);
+}
+
+.close:hover {
+    background: rgba(35, 35, 35, 0.27);
+}
+
+.close:hover div {
+    background: #fff;
+}
+
+/* -----------Popup_window------------ */
 .popup {
     position: fixed;
     top: -100%;
     left: 0;
+    z-index: 999;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(37, 37, 37, 0.74);
+    transition: 0.5s ease;
 }
 
+.popup__container {
+    position: relative;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 60px;
+}
+
+.popup__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.popup__subText {
+    color: #A9A9A9;
+    font-size: 16px;
+    margin: 8px 0 30px 0;
+}
+
+.form__input {
+    width: 100%;
+    font-size: 16px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid #BDBDBD;
+    margin: 10px 0;
+    transition: 0.5s ease;
+}
+
+.form__input:focus {
+    border: 2px solid #1F1F1F;
+}
+
+.privacy__text {
+    color: #B3B3B3;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    margin-top: 40px;
+    width: 100%;
+    height: 50px;
+    background-color: #1F1F1F;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 100px;
+}
+/* -------------------------- */
+
+/* -------------Header------------- */
 .header {
-    height: 65px;
+    position: fixed;
+    padding: 22px 0;
+    height: 80px;
     width: 100%;
 }
 
 .header__container {
-    position: relative;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 8.5%;
 }
 
 .header__menu {
+    padding-right: 10px;
+}
 
+.header__menu-list {
+    display: flex;
+    gap: 30px;
+}
+
+.menu-list__btn {
+    display: none;
+}
+
+.header__logo {
+    flex-grow: 2;
+    cursor: pointer;
+}
+
+.header__geo {
+    display: flex;
+    align-items: center;
+    gap: 22px;
 }
 
 .header__burger-menu {
+    width: 24px;
+    height: 20px;
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
-.main {
+.header__burger-menu div {
+    height: 3px;
+    background: #313131;
+    transition: 0.5s ease;
+}
+
+.header__burger-menu:hover div {
+    border-radius: 24px;
+}
+
+.menu__close {
     display: none;
+}
+/* -------------------------- */
+
+/* -------------Main------------- */
+.main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.main::after {
+    content: '';
+    position: absolute;
+    top: 80px;
+    right: 0;
+    z-index: -1;
+    display: block;
+    width: 50%;
+    height: 91.5%;
+    background-image: url("./assets/main.png");
+    border-radius: 0 0 0 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    object-fit: fill;
+}
+
+.main__container {
+    padding-top: 140px;
+}
+
+.main__sub {
+    margin: 40px 0;
+    font-size: 24px;
+    max-width: 520px;
+}
+/* -------------------------- */
+
+
+@media screen and (max-width: 1370px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .btn {
+        padding: 13px 25px 15px 25px;
+        font-size: 16px;
+    }
+
+    /* -----------Popup_window------------ */
+    .popup__container {
+        position: relative;
+        max-width: 500px;
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+    }
+    /* -------------------------- */
+
+    /* -------------Header------------- */
+    .header__container {gap: 190px}
+    .menu-list__item, .geo {font-size: 15px;}
+    .header__geo {gap: 15px;}
+    /* -------------------------- */
+
+    /* -------------Main------------- */
+    /*.main {height: 86.8vh;}*/
+    .main__container {padding-top: 120px;}
+    h1 {font-size: 140px;}
+
+    .main__sub {
+        margin: 40px 0;
+        font-size: 20px;
+    }
+
+    .main::after {
+        height: 90%;
+    }
+    /* -------------------------- */
+}
+
+@media screen and (max-width: 1300px) {
+    .header__container {gap: 180px;}
+}
+
+@media screen and (max-width: 1160px) {
+    .header__container {gap: 110px;}
+    h1 {font-size: 105px;}
+    .main__sub {
+        margin: 20px 0 40px 0;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    /* -------------Header------------- */
+    .header__container {gap: 100px}
+    .menu-list__item, .geo {font-size: 14px;}
+    .header__geo {gap: 15px;}
+    /* -------------------------- */
+
+    /* -------------Main------------- */
+    h1 {font-size: 110px;}
+
+    .main__sub {
+        margin: 20px 0;
+        font-size: 16px;
+    }
+    /* -------------------------- */
+}
+
+@media screen and (max-width: 1050px) {
+    /* -------------Header------------- */
+    .header__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        z-index: 888;
+        padding: 80px 40px 0 20px;
+        transition: 0.5s ease;
+    }
+
+    .header__menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .menu-list__item {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    .menu-list__btn {display: block}
+
+    .menu__close {
+        display: block;
+    }
+
+    .header__logo {
+        z-index: 900;
+    }
+
+    .header__burger-menu {
+        display: flex;
+    }
+    /* -------------------------- */
+    .main__sub {
+        max-width: 400px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    h1 {
+        font-family: "Michroma", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    /* -----------Popup_window------------ */
+    h2, .popup__subText {text-align: center}
+    label {
+        text-align: left;
+    }
+    /* -------------------------- */
+
+    /* -------------Main------------- */
+    .main {
+        text-align: center;
+    }
+    .main::after {
+        top: 50%;
+        height: 50%;
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        background-position: center 80%;
+    }
+
+    .main__sub {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    /* -------------------------- */
+}
+
+@media screen and (max-width: 650px) {
+    h1 {font-size: 50px;}
+}
+
+@media screen and (max-width: 550px) {
+    h1 {font-size: 40px;}
+    .main__sub, .btn {font-size: 14px;}
+    .geo {display: none}
+    /* -----------Popup_window------------ */
+    .popup__container {
+        border-radius: 0;
+        padding: 75px 20px 20px 20px;
+    }
+    h2 {
+        font-size: 26px;
+    }
+
+    input[type="submit"], .privacy__text {
+        font-size: 14px;
+    }
+    /* -------------------------- */
+}
+
+@media screen and (max-width: 450px) {
+    h1 {font-size: 30px;}
 }
