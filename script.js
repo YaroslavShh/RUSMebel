@@ -25,6 +25,8 @@ formSubmit.addEventListener("click", (e) => {
         inputCheckbox.checked = false;
         inputText.classList.remove("red")
         formPrivacy.style.color = null;
+        popup.style.top = "-300%";
+        headerMenu.style.top = "-300%";
     } else if (inputText.value.trim() !== "" && inputCheckbox.checked === false) {
         inputText.classList.remove("red")
         formPrivacy.style.color = "red";
