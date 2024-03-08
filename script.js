@@ -10,13 +10,14 @@ const inputText = document.getElementById("inputText");
 const inputCheckbox = document.getElementById("inputCheckbox");
 const formPrivacy = document.getElementById("formPrivacy");
 
-const universalFunc = (block) => block.style.top === "-300%" ? block.style.top = "0" : block.style.top = "-300%";
+const openBlock = (block) => block.style.top = "0";
+const closeBlock = (block) => block.style.top = "-300%";
 
-openPopupBtn.addEventListener("click", () => universalFunc(popup));
-openPopupBtnIsMenu.addEventListener("click", () => universalFunc(popup));
-popupCloseBtn.addEventListener("click",() =>  universalFunc(popup))
-menuOpenBtn.addEventListener("click", () => universalFunc(headerMenu))
-menuCloseBtn.addEventListener("click", () => universalFunc(headerMenu))
+openPopupBtn.addEventListener("click", () => openBlock(popup));
+openPopupBtnIsMenu.addEventListener("click", () => openBlock(popup));
+popupCloseBtn.addEventListener("click",() =>  closeBlock(popup))
+menuOpenBtn.addEventListener("click", () => openBlock(headerMenu))
+menuCloseBtn.addEventListener("click", () => closeBlock(headerMenu))
 formSubmit.addEventListener("click", (e) => {
     e.preventDefault()
     if(inputText.value.trim() !== "" && inputCheckbox.checked) {
