@@ -108,6 +108,10 @@ h1 {
     background: #fff;
 }
 
+.red {outline: 2px solid red;}
+
+.redText {color: red;}
+
 /* -----------Popup_window------------ */
 .popup {
     position: fixed;
@@ -187,6 +191,8 @@ input[type="submit"] {
     height: 80px;
     z-index: 2;
     width: 100%;
+    background: #FFFCF5;
+    border-bottom: 1px solid #D4D1C766;
 }
 
 .header__container {
@@ -241,6 +247,11 @@ input[type="submit"] {
 .menu__close {
     display: none;
 }
+
+.menu__close:hover {
+    background: rgba(35, 35, 35, 0.97);
+}
+
 /* -------------------------- */
 
 /* -------------Main------------- */
@@ -250,6 +261,7 @@ input[type="submit"] {
     height: 100vh;
     overflow: hidden;
     z-index: 0;
+    background-color: #FFFCF5;
 }
 
 .main::after {
